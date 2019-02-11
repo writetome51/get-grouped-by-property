@@ -1,6 +1,6 @@
 import { getAndRemoveHead } from '@writetome51/array-get-and-remove-head-tail';
 import { isEmpty } from 'basic-data-handling/isEmpty_notEmpty';
-import { isArray } from 'basic-data-handling/isArray_notArray';
+import { isString } from 'basic-data-handling/isString_notString';
 import { append } from '@writetome51/array-append-prepend';
 import { getSortedByProperty } from '@writetome51/get-sorted-by-property';
 import { getProperty } from '@writetome51/get-property';
@@ -36,14 +36,13 @@ export function getGroupedByProperty(property, objects): Array<Object[]> {
 		function objectPropertyMatchesLastItemInGroup(obj, property, group) {
 			let lastItem = group.length - 1;
 
-			let propertyValue = String(getProperty(property, obj)).toLowerCase();
-			let valueOfSameProperty_of_lastItemInGroup =
-				String(getProperty(property, group[lastItem])).toLowerCase();
+			let propertyValue = getProperty(property, obj);
+			let valueOfSameProperty_of_lastItemInGroup = getProperty(property, group[lastItem]);
 
-			if (isArray(propertyValue) && isArray(valueOfSameProperty_of_lastItemInGroup)) {
-				return arraysMatch(propertyValue, valueOfSameProperty_of_lastItemInGroup);
+			if (isString(propertyValue) && isString(valueOfSameProperty_of_lastItemInGroup)) {
+				return propertyValue.toLowerCase() === valueOfSameProperty_of_lastItemInGroup.toLowerCase();
 			}
-			else return propertyValue === valueOfSameProperty_of_lastItemInGroup;
+			return propertyValue === valueOfSameProperty_of_lastItemInGroup;
 		}
 
 	}
