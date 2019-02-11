@@ -7,7 +7,8 @@ var get_sorted_by_property_1 = require("@writetome51/get-sorted-by-property");
 var get_property_1 = require("@writetome51/get-property");
 var arrays_match_1 = require("@writetome51/arrays-match");
 // Separates objects into sub-arrays with matching values of property.
-// property can contain dot-notation.
+// parameter property can contain dot-notation.
+// For properties to have matching values, they cannot be objects.  Arrays are allowed.
 function getGroupedByProperty(property, objects) {
     objects = get_sorted_by_property_1.getSortedByProperty(property, objects);
     return getGroupedAdjacentObjectsByMatchingProperty(objects, property);

@@ -1,7 +1,7 @@
 {
   "name": "@writetome51/get-grouped-by-property",
   "version": "1.0.0",
-  "description": "Returns array of objects as sub-arrays of objects with matching values of a particular property",
+  "description": "Returns array of objects divided into sub-arrays, grouped by value of a particular property",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

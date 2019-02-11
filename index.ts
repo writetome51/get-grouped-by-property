@@ -8,7 +8,8 @@ import { arraysMatch } from '@writetome51/arrays-match';
 
 
 // Separates objects into sub-arrays with matching values of property.
-// property can contain dot-notation.
+// parameter property can contain dot-notation.
+// For properties to have matching values, they cannot be objects.  Arrays are allowed.
 
 export function getGroupedByProperty(property, objects): Array<Object[]> {
 	objects = getSortedByProperty(property, objects);
