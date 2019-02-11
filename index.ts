@@ -1,5 +1,4 @@
 import { getAndRemoveHead } from '@writetome51/array-get-and-remove-head-tail';
-import { getMergedArrays } from '@writetome51/array-get-merged-arrays';
 import { isEmpty } from 'basic-data-handling/isEmpty_notEmpty';
 import { isArray } from 'basic-data-handling/isArray_notArray';
 import { append } from '@writetome51/array-append-prepend';
