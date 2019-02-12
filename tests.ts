@@ -15,6 +15,6 @@ if (arraysMatch(groups, [
 else console.log('test 1 FAILED');
 
 
-let objs = [{prop: 2.0}, {prop: 'the'}, {prop: '1.0000111', a: 1}, {prop: '2'}, {prop: 'THE'}, {prop: 1.00001111, a: 3}];
+let objs = [ {prop: 'the'}, {prop: '1.0000111', a: 1}, {prop: 2.0}, {prop: '2'}, {prop: 'THE'}, {prop: 1.00001111, a: 3}];
 groups = getGroupedByProperty('prop', objs);
 console.log(groups);
