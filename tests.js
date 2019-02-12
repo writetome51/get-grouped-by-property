@@ -54,3 +54,36 @@ if (groups[0].length === 1 && groups[0][0].person.hair === 'blue'
     console.log('test 4 passed');
 else
     console.log('test 4 FAILED');
+var errorTriggered = false;
+try {
+    index_1.getGroupedByProperty('', [{ name: 'joe' }]);
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 5 passed');
+else
+    console.log('test 5 FAILED');
+errorTriggered = false;
+try {
+    index_1.getGroupedByProperty('property', '');
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 6 passed');
+else
+    console.log('test 6 FAILED');
+errorTriggered = false;
+try {
+    index_1.getGroupedByProperty('property', []);
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 7 passed');
+else
+    console.log('test 7 FAILED');

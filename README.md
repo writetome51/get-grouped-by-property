@@ -14,12 +14,58 @@ and the algorithm expects that property in all <b>objects</b> to be type 'number
 you get an error. 
 
 Note:  <b>property</b> does not have to be an object key. It can also be an array index.  
-If you are getting the value of a nested array index, here you need to use dot-notation and not  
-square braces.  Example: `'1.0' instead of [1][0]`
+If an array index, here you need to use dot-notation and not square braces.  
+Example: `'1.0' instead of [1][0]`
 
 ## Examples
 ```
+persons = [
+	{person: {hair: 'red', name: 'tom'}},
+	{person: {hair: 'brown', name: 'ron'}},
+	{person: {hair: 'black', name: 'harry'}},
+	{person: {hair: 'blue', name: 'barry'}},
+	{person: {hair: 'brown', name: 'midge'}},
+	{person: {hair: 'black', name: 'sandy'}}
+];
 
+groups = getGroupedByProperty('person.hair', persons);
+
+/*************
+groups is:
+[
+   [ {person: {hair: 'black', name: 'harry'}}, {person: {hair: 'black', name: 'sandy'}} ],
+   [ {person: {hair: 'blue', name: 'barry'}} ],
+   [ {person: {hair: 'brown', name: 'ron'}}, {person: {hair: 'brown', name: 'midge'}} ],
+   [ {person: {hair: 'red', name: 'tom'}} ]
+]
+*************/
+
+
+// What if some values are null or undefined?
+
+persons = [
+	{person: {hair: 'red', name: 'tom'}},
+	{person: {hair: 'null', name: 'ron'}},
+	{person: {name: 'harry'}}, // missing property means its value is undefined.
+	{person: {hair: 'blue', name: 'barry'}},
+	{person: {hair: null, name: 'midge'}},
+	{person: {hair: undefined, name: 'sandy'}}
+];
+
+groups = getGroupedByProperty('person.hair', persons);
+
+/*************
+groups is:
+[
+   [ {person: {hair: 'blue', name: 'barry'}} ],
+   [ {person: {hair: 'null', name: 'ron'}}, {person: {hair: null, name: 'midge'}} ],
+   [ {person: {hair: 'red', name: 'tom'}} ],
+   [ {person: {name: 'harry'}}, {person: {hair: undefined, name: 'sandy'}} ]
+]
+*************/
+
+
+// group together arrays with the same number of items:
 
 let arrays = [
 	[1, 2], [3, 4, 5, 6, 7], [8, 9, 10], [11, 12], 
@@ -37,26 +83,7 @@ groups is:
 ]
 *************/
 
-objs = [
-	{person: {hair: 'red', name: 'tom'}},
-	{person: {hair: 'null', name: 'ron'}},
-	{person: {name: 'harry'}},
-	{person: {hair: 'blue', name: 'barry'}},
-	{person: {hair: null, name: 'midge'}},
-	{person: {hair: undefined, name: 'sandy'}}
-];
 
-groups = getGroupedByProperty('person.hair', objs);
-
-/*************
-groups is:
-[
-   [{person: {hair: 'blue', name: 'barry'}}],
-   [{person: {hair: 'null', name: 'ron'}}, {person: {hair: null, name: 'midge'}}],
-   [{person: {hair: 'red', name: 'tom'}}],
-   [{person: {name: 'harry'}}, {person: {hair: undefined, name: 'sandy'}}]
-]
-*************/
 ```
 
 ## Installation

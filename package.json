@@ -23,7 +23,9 @@
     "url": "https://github.com/writetome51/get-grouped-by-property/issues"
   },
   "homepage": "https://github.com/writetome51/get-grouped-by-property#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "@writetome51/arrays-match": "~1.0.4"
+  },
   "dependencies": {
     "@writetome51/array-append-prepend": "~1.0.4",
     "@writetome51/array-get-and-remove-head-tail": "~1.0.3",
