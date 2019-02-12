@@ -1,7 +1,6 @@
 import { isEmpty } from 'basic-data-handling/isEmpty_notEmpty';
 import { getSortedByProperty } from '@writetome51/get-sorted-by-property';
 import { getProperty } from '@writetome51/get-property';
-import { arraysMatch } from '@writetome51/arrays-match';
 import { append } from '@writetome51/array-append-prepend';
 import { getAndRemoveHead } from '@writetome51/array-get-and-remove-head-tail';
 
