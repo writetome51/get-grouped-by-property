@@ -36,6 +36,27 @@ groups is:
    [[3, 4, 5, 6, 7], [17, 18, 19, 20, 21]]
 ]
 *************/
+
+objs = [
+	{person: {hair: 'red', name: 'tom'}},
+	{person: {hair: 'null', name: 'ron'}},
+	{person: {name: 'harry'}},
+	{person: {hair: 'blue', name: 'barry'}},
+	{person: {hair: null, name: 'midge'}},
+	{person: {hair: undefined, name: 'sandy'}}
+];
+
+groups = getGroupedByProperty('person.hair', objs);
+
+/*************
+groups is:
+[
+   [{person: {hair: 'blue', name: 'barry'}}],
+   [{person: {hair: 'null', name: 'ron'}}, {person: {hair: null, name: 'midge'}}],
+   [{person: {hair: 'red', name: 'tom'}}],
+   [{person: {name: 'harry'}}, {person: {hair: undefined, name: 'sandy'}}]
+]
+*************/
 ```
 
 ## Installation

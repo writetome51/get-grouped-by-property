@@ -38,3 +38,21 @@ if (groups[0][0].person.hair === 'black' && groups[0][1].person.hair === 'black'
 && groups[2][1].person.hair === 'brown' && groups[3].length === 1  && groups[3][0].person.hair === 'red')
 	console.log('test 3 passed');
 else console.log('test 3 FAILED');
+
+
+objs = [
+	{person: {hair: 'red', name: 'tom'}},
+	{person: {hair: 'null', name: 'ron'}},
+	{person: {name: 'harry'}},
+	{person: {hair: 'blue', name: 'barry'}},
+	{person: {hair: null, name: 'midge'}},
+	{person: {hair: undefined, name: 'sandy'}}
+];
+
+groups = getGroupedByProperty('person.hair', objs);
+if (groups[0].length === 1 && groups[0][0].person.hair === 'blue'
+	&& groups[1][0].person.hair === 'null' && groups[1][1].person.hair === null
+	&& groups[2].length === 1 && groups[2][0].person.hair === 'red'
+	 && groups[3][0].person.hair === undefined && groups[3][1].person.hair === undefined)
+	console.log('test 4 passed');
+else console.log('test 4 FAILED');
