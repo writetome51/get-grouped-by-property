@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@writetome51/array-append-prepend": "~1.0.4",
-    "@writetome51/array-get-and-remove-head-tail": "~1.0.3",
     "@writetome51/get-sorted-by-property": "~1.0.0",
     "@writetome51/get-property": "~1.0.1",
     "basic-data-handling": "~1.0.13"

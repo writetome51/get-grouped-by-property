@@ -2,14 +2,10 @@ import { isEmpty } from 'basic-data-handling/isEmpty_notEmpty';
 import { getSortedByProperty } from '@writetome51/get-sorted-by-property';
 import { getProperty } from '@writetome51/get-property';
 import { append } from '@writetome51/array-append-prepend';
-import { getAndRemoveHead } from '@writetome51/array-get-and-remove-head-tail';
 
 
 // Separates objects into sub-arrays with matching values of property.
 // The value of property in each object must be a primitive type.
-// It decides how to do the initial sorting by checking the data type of property
-// in the first object in objects. If it's a string or boolean, the sorting
-// is done alphabetically.  If it's a number the sorting is done numerically.
 // parameter property can contain dot-notation.
 
 export function getGroupedByProperty(property, objects): Array<Object[]> {

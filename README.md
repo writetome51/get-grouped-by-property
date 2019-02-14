@@ -9,9 +9,8 @@ The parameter <b>property</b> is a string that can include dot notation ( i.e,  
 When using this function you have to take some care with the 'number' data type.  
 The algorithm first sorts the <b>objects</b> array by checking the data type of <b>property</b>  
 in the first object in <b>objects</b>. If it's a string or boolean, all objects are sorted  
-alphabetically and there's no problem. If it's a number, all objects are sorted numerically,  
-and the algorithm expects that property in all <b>objects</b> to be type 'number'. If not,  
-you get an error. 
+alphabetically. If it's a number, all objects are sorted numerically, and the algorithm  
+expects that property in all <b>objects</b> to be type 'number'. If not, you get an error. 
 
 Note:  <b>property</b> does not have to be an object key. It can also be an array index.  
 If an array index, here you need to use dot-notation and not square braces.  

@@ -6,9 +6,6 @@ var get_property_1 = require("@writetome51/get-property");
 var array_append_prepend_1 = require("@writetome51/array-append-prepend");
 // Separates objects into sub-arrays with matching values of property.
 // The value of property in each object must be a primitive type.
-// It decides how to do the initial sorting by checking the data type of property
-// in the first object in objects. If it's a string or boolean, the sorting
-// is done alphabetically.  If it's a number the sorting is done numerically.
 // parameter property can contain dot-notation.
 function getGroupedByProperty(property, objects) {
     objects = get_sorted_by_property_1.getSortedByProperty(property, objects);
