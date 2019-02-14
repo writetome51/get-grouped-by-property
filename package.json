@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/get-grouped-by-property",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Returns array of objects divided into sub-arrays, grouped by matching value of a particular property",
   "main": "index.js",
   "scripts": {
