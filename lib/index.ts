@@ -8,20 +8,19 @@ import { append } from '@writetome51/array-append-prepend';
 // The value of property in each object must be a primitive type.
 // parameter property can contain dot-notation.
 
-export function getGroupedByProperty(property, objects): Array<Object[]> {
+export function getGroupedByProperty(property, objects): Array<any[]> {
 	objects = getSortedByProperty(property, objects);
 
 	return getGroupedAdjacentObjectsByMatchingProperty(objects, property);
 
 
-	function getGroupedAdjacentObjectsByMatchingProperty(objects: Object[], property): Array<Object[]> {
+	function getGroupedAdjacentObjectsByMatchingProperty(objects: Object[], property): Array<any[]> {
 		let groups = [], group = [];
 
 		objects.forEach((obj) => {
 			if (isEmpty(group) || objectPropertyMatchesLastItemInGroup(obj, property, group)) {
 				append([obj], group);
-			}
-			else {
+			} else {
 				append([group], groups);
 				group = [obj];
 			}

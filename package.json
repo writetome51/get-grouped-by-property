@@ -1,10 +1,11 @@
 {
   "name": "@writetome51/get-grouped-by-property",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Returns array of objects divided into sub-arrays, grouped by matching value of a particular property",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -24,12 +25,12 @@
   },
   "homepage": "https://github.com/writetome51/get-grouped-by-property#readme",
   "devDependencies": {
-    "@writetome51/arrays-match": "~1.0.4"
+    "@writetome51/arrays-match": "~1.0.5"
   },
   "dependencies": {
-    "@writetome51/array-append-prepend": "~1.0.4",
-    "@writetome51/get-sorted-by-property": "~1.0.0",
-    "@writetome51/get-property": "~1.0.1",
-    "basic-data-handling": "~1.0.13"
+    "@writetome51/array-append-prepend": "~1.0.5",
+    "@writetome51/get-sorted-by-property": "~1.0.3",
+    "@writetome51/get-property": "~1.0.2",
+    "basic-data-handling": "~1.0.15"
   }
 }

@@ -1,18 +1,17 @@
-# getGroupedByProperty()
-## getGroupedByProperty(property, objects): Array<Object[]>
+# getGroupedByProperty(property, objects): Array<any[]>
 
-Returns <b>objects</b> divided into sub-arrays, grouped by matching value of a particular 
-<b>property</b>.  
-The value of <b>property</b> in each object must be a primitive type.  
-The parameter <b>property</b> is a string that can include dot notation ( i.e,  `'property.subproperty.subsubproperty'` ) .   
+Returns `objects` divided into sub-arrays, grouped by matching value of a particular 
+`property`.  
+The value of `property` in each object must be a primitive type.  
+The parameter `property` is a string that can include dot notation ( i.e,  `'property.subproperty.subsubproperty'` ) .   
 
 When using this function you have to take some care with the 'number' data type.  
-The algorithm first sorts the <b>objects</b> array by checking the data type of <b>property</b>  
-in the first object in <b>objects</b>. If it's a string or boolean, all objects are sorted  
+The algorithm first sorts the `objects` array by checking the data type of `property`  
+in the first object in `objects`. If it's a string or boolean, all objects are sorted  
 alphabetically. If it's a number, all objects are sorted numerically, and the algorithm  
-expects that property in all <b>objects</b> to be type 'number'. If not, you get an error. 
+expects that property in all `objects` to be type 'number'. If not, you get an error. 
 
-Note:  <b>property</b> does not have to be an object key. It can also be an array index.  
+Note:  `property` does not have to be an object key. It can also be an array index.  
 If an array index, here you need to use dot-notation and not square braces.  
 Example: `'1.0' instead of [1][0]`
 
