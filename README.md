@@ -1,15 +1,15 @@
-# getGroupedByProperty(property, objects): Array<any[]>
+# getGroupedByProperty(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects<br>): Array<any[]>
 
-Returns `objects` divided into sub-arrays, grouped by matching value of a particular 
-`property`.  
+Returns `objects` divided into sub-arrays, grouped by matching value of `property`.  
 The value of `property` in each object must be a primitive type.  
-The parameter `property` is a string that can include dot notation ( i.e,  `'property.subproperty.subsubproperty'` ) .   
+The parameter `property` is a string that can include dot notation  
+( i.e,  `'property.subproperty.subsubproperty'` ) .   
 
 When using this function you have to take some care with the 'number' data type.  
-The algorithm first sorts the `objects` array by checking the data type of `property`  
-in the first object in `objects`. If it's a string or boolean, all objects are sorted  
-alphabetically. If it's a number, all objects are sorted numerically, and the algorithm  
-expects that property in all `objects` to be type 'number'. If not, you get an error. 
+The algorithm first sorts `objects` by checking the data type of `objects[0][property]`.  
+If it's a string or boolean, all `objects` are sorted alphabetically. If it's a number,  
+all `objects` are sorted numerically, and the algorithm expects that property in all  
+`objects` to be type 'number'. If not, you get an error. 
 
 Note:  `property` does not have to be an object key. It can also be an array index.  
 If an array index, here you need to use dot-notation and not square braces.  
