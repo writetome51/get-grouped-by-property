@@ -15,6 +15,13 @@ if (arrays_match_1.arraysMatch(groups, [
     console.log('test 1 passed');
 else
     console.log('test 1 FAILED');
+// Make sure original array has not changed:
+if (arrays_match_1.arraysMatch(arrays, [
+    [1, 2], [3, 4, 5, 6, 7], [8, 9, 10], [11, 12], [13, 14, 15, 16], [17, 18, 19, 20, 21], [22, 23, 24, 25]
+]))
+    console.log('test 1A passed');
+else
+    console.log('test 1A FAILED');
 var objs = [{ prop: 'the' }, { prop: '1.00001111' }, { prop: 2.0 }, { prop: '2' }, { prop: 'THE' }, { prop: 1.00001111 }];
 groups = index_1.getGroupedByProperty('prop', objs);
 if (groups[0][0].prop === '1.00001111' && groups[0][1].prop === 1.00001111

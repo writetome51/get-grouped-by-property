@@ -1,4 +1,4 @@
-import { isEmpty } from 'basic-data-handling/isEmpty_notEmpty';
+import { isEmpty } from '@writetome51/is-empty-not-empty';
 import { getSortedByProperty } from '@writetome51/get-sorted-by-property';
 import { getProperty } from '@writetome51/get-property';
 import { append } from '@writetome51/array-append-prepend';

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var isEmpty_notEmpty_1 = require("basic-data-handling/isEmpty_notEmpty");
+var is_empty_not_empty_1 = require("@writetome51/is-empty-not-empty");
 var get_sorted_by_property_1 = require("@writetome51/get-sorted-by-property");
 var get_property_1 = require("@writetome51/get-property");
 var array_append_prepend_1 = require("@writetome51/array-append-prepend");
@@ -13,7 +13,7 @@ function getGroupedByProperty(property, objects) {
     function getGroupedAdjacentObjectsByMatchingProperty(objects, property) {
         var groups = [], group = [];
         objects.forEach(function (obj) {
-            if (isEmpty_notEmpty_1.isEmpty(group) || objectPropertyMatchesLastItemInGroup(obj, property, group)) {
+            if (is_empty_not_empty_1.isEmpty(group) || objectPropertyMatchesLastItemInGroup(obj, property, group)) {
                 array_append_prepend_1.append([obj], group);
             }
             else {
