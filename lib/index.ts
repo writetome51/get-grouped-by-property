@@ -1,20 +1,20 @@
-import { isEmpty } from '@writetome51/is-empty-not-empty';
-import { getSortedByProperty } from '@writetome51/get-sorted-by-property';
-import { getProperty } from '@writetome51/get-property';
 import { append } from '@writetome51/array-append-prepend';
+import { getProperty } from '@writetome51/get-property';
+import { getSortedByProperty } from '@writetome51/get-sorted-by-property';
+import { isEmpty } from '@writetome51/is-empty-not-empty';
 
 
-// Separates objects into sub-arrays with matching values of property.
-// The value of property in each object must be a primitive type.
-// parameter property can contain dot-notation.
+// Separates `objects` into sub-arrays with matching values of `property`.
+// The value of `property` in each object must be a primitive type.
+// `property` can contain dot-notation.
 
-export function getGroupedByProperty(property, objects): Array<any[]> {
+export function getGroupedByProperty(property, objects): Array<object[]> {
 	objects = getSortedByProperty(property, objects);
 
-	return getGroupedAdjacentObjectsByMatchingProperty(objects, property);
+	return getGroupedAdjacentObjectsByMatchingProperty(objects);
 
 
-	function getGroupedAdjacentObjectsByMatchingProperty(objects: Object[], property): Array<any[]> {
+	function getGroupedAdjacentObjectsByMatchingProperty(objects): Array<object[]> {
 		let groups = [], group = [];
 
 		objects.forEach((obj) => {
@@ -30,13 +30,14 @@ export function getGroupedByProperty(property, objects): Array<any[]> {
 
 
 		function objectPropertyMatchesLastItemInGroup(obj, property, group) {
-			let lastItem = group.length - 1;
 
 			// For making the 'identical' comparison, results are best when both items
 			// being compared are converted to type 'string' and forced to lower-case, even if they
 			// were not originally strings.  This has to do with comparing data of different types
 			// that appear identical, like '1.0' and 1, or 'true' and true.
 			let propertyValue = String(getProperty(property, obj)).toLowerCase();
+
+			let lastItem = group.length - 1;
 			let valueOfSameProperty_of_lastItemInGroup =
 				String(getProperty(property, group[lastItem])).toLowerCase();
 
