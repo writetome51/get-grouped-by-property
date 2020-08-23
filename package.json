@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/get-grouped-by-property",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Function receives array of objects and divides them into sub-arrays, grouped by matching value of a particular property",
   "type": "module",
   "main": "dist/index.js",
@@ -28,12 +28,11 @@
   },
   "homepage": "https://github.com/writetome51/get-grouped-by-property#readme",
   "devDependencies": {
-    "@writetome51/arrays-match": "^2.0.0"
+    "@writetome51/arrays-match": "^2.0.1"
   },
   "dependencies": {
-    "@writetome51/array-append-prepend": "^2.0.0",
-    "@writetome51/get-sorted-by-property": "^2.0.0",
-    "@writetome51/get-property": "^2.0.0",
-    "@writetome51/is-empty-not-empty": "^2.0.0"
+    "@writetome51/get-array-copy": "^1.0.0",
+    "@writetome51/get-property": "^2.0.1",
+    "@writetome51/sort-by-property": "^1.0.0"
   }
 }
