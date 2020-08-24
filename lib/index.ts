@@ -7,7 +7,10 @@ import { sortByProperty } from '@writetome51/sort-by-property';
 // The value of `property` in each object must be either number, boolean, or string.
 // `property` can contain dot-notation.
 
-export function getGroupedByProperty(property: string, objects: object[]): Array<object[]> {
+export function getGroupedByProperty(
+	property: string,
+	objects: object[]
+): Array<object[]> {
 	let sortedObjects = getSortedByProperty(property, objects);
 
 	return getAdjacentObjectsGroupedByMatchingProperty(sortedObjects);
@@ -37,15 +40,10 @@ export function getGroupedByProperty(property: string, objects: object[]): Array
 
 		function objectMatchesLastItemInGroup(obj, group) {
 
-			// For making the 'identical' comparison, results are best when both items
-			// being compared are converted to type 'string' and forced to lower-case, even if they
-			// were not originally strings.  This has to do with comparing data of different types
-			// that appear identical, like '1.0' and 1, or 'true' and true.
-			let propertyValue = String(getProperty(property, obj)).toLowerCase();
+			let propertyValue = String(getProperty(property, obj));
 
 			let lastItem = group.length - 1;
-			let valueOfSameProperty_of_lastItemInGroup =
-				String(getProperty(property, group[lastItem])).toLowerCase();
+			let valueOfSameProperty_of_lastItemInGroup = String(getProperty(property, group[lastItem]));
 
 			return propertyValue === valueOfSameProperty_of_lastItemInGroup;
 		}
