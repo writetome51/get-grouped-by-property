@@ -1,13 +1,20 @@
+import {append} from '@writetome51/array-append-prepend';
 import {getArrayCopy} from '@writetome51/get-array-copy';
 import {getProperty} from '@writetome51/get-property';
 import {sortByProperty} from '@writetome51/sort-by-property';
 
 
-// Separates `objects` into sub-arrays with matching values of `property`.  Does not modify `objects`.
+// Returns `objects` divided into sub-arrays, grouped by matching value of `property`.
+// Does not modify `objects`.
+// You can customize how a match is determined with optional callback `matchFound(a, b)`.
 // The value of `property` in each object must be either number, boolean, or string.
 // `property` can contain dot-notation.
 
-export function getGroupedByProperty(property, objects) {
+export function getGroupedByProperty(
+	property,
+	objects,
+	matchFound = (a, b) => String(a) === String(b)
+) {
 	let sortedObjects = getSortedByProperty(property, objects);
 
 	return getAdjacentObjectsGroupedByMatchingProperty(sortedObjects);
@@ -25,21 +32,20 @@ export function getGroupedByProperty(property, objects) {
 
 		while (++i < length) { // skipping first item.
 			let obj = objects[i];
-			if (objectMatchesLastItemInGroup(obj, group)) group.push(obj);
+			if (objectMatchesItemInGroup(obj, group)) append(obj, group);
 			else {
-				groups.push(group);
+				append(group, groups);
 				group = [obj];
 			}
 		}
-		groups.push(group);
+		append(group, groups);
 		return groups;
 
 
-		function objectMatchesLastItemInGroup(obj, group) {
-			let propertyValue = String(getProperty(property, obj));
-			let lastItem = group.length - 1;
-			let valueOfSameProperty_of_lastItemInGroup = String(getProperty(property, group[lastItem]));
-			return propertyValue === valueOfSameProperty_of_lastItemInGroup;
+		function objectMatchesItemInGroup(obj, group) {
+			let propertyValue = getProperty(property, obj);
+			let valueOfSameProperty_of_itemInGroup = getProperty(property, group[0]);
+			return matchFound(propertyValue, valueOfSameProperty_of_itemInGroup);
 		}
 	}
 }

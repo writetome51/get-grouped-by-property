@@ -1,11 +1,13 @@
-# getGroupedByProperty(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property: string,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects: object[]<br>): Array<object[]>
+# getGroupedByProperty(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property: string,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects: object[],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matchFound? = (a, b) => String(a) === String(b)<br>): Array<object[]>
 
 Returns `objects` divided into sub-arrays, grouped by matching value of `property`.  
 The original `objects` array is not modified.  
-Based on the data type of `objects[0][property]`, it decides how to sort all `objects`.  
-That type must be either number, string, or boolean.  Sorting is done either numerically or  
-alphabetically (booleans are treated as strings).  Then adjacent objects are grouped  
-together if this comparison is true: `String(objectA[property]) === String(objectB[property])`
+You can customize how a match is determined with optional callback `matchFound(a, b)`  
+(by default it returns `String(a) === String(b)` ).  
+Based on the data type of `objects[0][property]`, this function decides how to sort  
+all `objects`. That type must be either number (sorting will be numeric), string or  
+boolean (sorting will be alphabetical for both). After sorting, adjacent objects are  
+grouped together if `matchFound(a, b)` returns true.
 
 Note: `property` is a string that can include dot-notation ( i.e.,  
 `'property.subproperty.subsubproperty'` ).  Even if `property` is an array index,  
@@ -72,7 +74,7 @@ Returns:
 *************/
 
 
-// Matching is case-sensitive:
+// By default, matching is case-sensitive:
 
 objs = [{prop: 'V'}, {prop: 'v'}, {prop: 'V'}, {prop: 'A'}, {prop: 'a'}, {prop: 'a'}];
 getGroupedByProperty('prop', objs);
@@ -86,11 +88,24 @@ Returns:
 ]
  *************/
 
+// Make matching case-insensitive:
+objs = [{prop: 'V'}, {prop: 'v'}, {prop: 'V'}, {prop: 'A'}, {prop: 'a'}, {prop: 'a'}];
+getGroupedByProperty(
+    'prop', objs, (a, b) => String(a).toLowerCase() === String(b).toLowerCase()
+);
+/************
+Returns:
+[
+  [ { prop: 'A' }, { prop: 'a' }, { prop: 'a' } ],
+  [ { prop: 'V' }, { prop: 'V' }, { prop: 'v' } ]
+]
+*************/
+
 
 // These last 2 examples show the different ordering of results based on what object
 // comes first in the array.
 
-// Since the value of objs[0]['prop'] is type 'number', objs will be ordered
+// Since the value of objs[0]['prop'] is a number, groups will be ordered
 // numerically:
 objs = [{prop: 1}, {prop: '1.0001'}, {prop: '2.0'}, {prop: '1'}, 
         {prop: '00100'}, {prop: '03'}];
@@ -106,7 +121,7 @@ Returns:
 ]
 ***************/
 
-// Since the value of objs[0]['prop'] is type 'string', objs will be ordered
+// Since the value of objs[0]['prop'] is a string, groups will be ordered
 // alphabetically:
 objs = [{prop: '1.0001'}, {prop: 1}, {prop: '2.0'}, {prop: '1'}, 
         {prop: '00100'}, {prop: '03'}];

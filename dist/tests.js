@@ -102,7 +102,7 @@ objs = [{prop: '1.0001'}, {prop: 1}, {prop: '2.0'}, {prop: '1'}, {prop: '00100'}
 objs = getGroupedByProperty('prop', objs);
 console.log(objs);
 
-// Matching is case-sensitive:
+// By default, matching is case-sensitive:
 objs = [{prop: 'V'}, {prop: 'v'}, {prop: 'V'}, {prop: 'A'}, {prop: 'a'}, {prop: 'a'}];
 objs = getGroupedByProperty('prop', objs);
 console.log(objs);
@@ -112,5 +112,16 @@ console.log(objs);
   [ { prop: 'a' }, { prop: 'a' } ],
   [ { prop: 'V' }, { prop: 'V' } ],
   [ { prop: 'v' } ]
+]
+ *************/
+
+// Make matching case-insensitive:
+objs = [{prop: 'V'}, {prop: 'v'}, {prop: 'V'}, {prop: 'A'}, {prop: 'a'}, {prop: 'a'}];
+objs = getGroupedByProperty('prop', objs, (a, b) => String(a).toLowerCase() === String(b).toLowerCase());
+console.log(objs);
+/************
+[
+  [ { prop: 'A' }, { prop: 'a' }, { prop: 'a' } ],
+  [ { prop: 'V' }, { prop: 'V' }, { prop: 'v' } ]
 ]
  *************/

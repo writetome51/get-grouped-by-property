@@ -33,6 +33,7 @@
     "@writetome51/arrays-match": "^2.0.1"
   },
   "dependencies": {
+    "@writetome51/array-append-prepend": "^3.0.0",
     "@writetome51/get-array-copy": "^1.0.0",
     "@writetome51/get-property": "^2.0.1",
     "@writetome51/sort-by-property": "^1.0.0"
