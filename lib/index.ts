@@ -2,6 +2,7 @@ import { append } from '@writetome51/array-append-prepend';
 import { getArrayCopy } from '@writetome51/get-array-copy';
 import { getProperty } from '@writetome51/get-property';
 import { sortByProperty } from '@writetome51/sort-by-property';
+import { toStr } from '@writetome51/to-str';
 
 
 // Returns `objects` divided into sub-arrays, grouped by matching value of `property`.
@@ -13,7 +14,7 @@ import { sortByProperty } from '@writetome51/sort-by-property';
 export function getGroupedByProperty(
 	property: string,
 	objects: object[],
-	matchFound = (a, b) => String(a) === String(b)
+	matchFound = (a, b) => toStr(a) === toStr(b)
 ): Array<object[]> {
 	let sortedObjects = getSortedByProperty(property, objects);
 
@@ -28,9 +29,9 @@ export function getGroupedByProperty(
 
 
 	function getAdjacentObjectsGroupedByMatchingProperty(objects): Array<object[]> {
-		let groups = [], group = [objects[0]], length = objects.length, i = 0;
+		let groups = [], group = [objects[0]];
 
-		while (++i < length) { // skipping first item.
+		for (let i = 1, length = objects.length; i < length; ++i) { // skipping first item.
 			let obj = objects[i];
 			if (objectMatchesItemInGroup(obj, group)) append(obj, group);
 			else {
