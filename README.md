@@ -1,4 +1,4 @@
-# getGroupedByProperty(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property: string,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects: object[],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matchFound? = (a, b) => String(a) === String(b)<br>): Array<object[]>
+# getGroupedByProperty\<T\>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property: string,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects: T[],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matchFound? = (a, b) => String(a) === String(b)<br>): Array<T[]>
 
 Returns `objects` divided into sub-arrays, grouped by matching value of `property`.  
 The original `objects` array is not modified.  

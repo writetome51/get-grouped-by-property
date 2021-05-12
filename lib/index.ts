@@ -11,11 +11,11 @@ import { toStr } from '@writetome51/to-str';
 // The value of `property` in each object must be either number, boolean, or string.
 // `property` can contain dot-notation.
 
-export function getGroupedByProperty(
+export function getGroupedByProperty<T>(
 	property: string,
-	objects: object[],
+	objects: T[],
 	matchFound = (a, b) => toStr(a) === toStr(b)
-): Array<object[]> {
+): Array<T[]> {
 	let sortedObjects = getSortedByProperty(property, objects);
 
 	return getAdjacentObjectsGroupedByMatchingProperty(sortedObjects);
@@ -28,7 +28,7 @@ export function getGroupedByProperty(
 	}
 
 
-	function getAdjacentObjectsGroupedByMatchingProperty(objects): Array<object[]> {
+	function getAdjacentObjectsGroupedByMatchingProperty(objects): Array<T[]> {
 		let groups = [], group = [objects[0]];
 
 		for (let i = 1, length = objects.length; i < length; ++i) { // skipping first item.

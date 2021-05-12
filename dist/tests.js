@@ -1,12 +1,12 @@
 import {getGroupedByProperty} from './index.js';
-import {arraysMatch} from '@writetome51/arrays-match';
+import {isMatch} from '@writetome51/is-match';
 
 
 let arrays = [
 	[1, 2], [3, 4, 5, 6, 7], [8, 9, 10], [11, 12], [13, 14, 15, 16], [17, 18, 19, 20, 21], [22, 23, 24, 25]
 ];
 let groups = getGroupedByProperty('length', arrays);
-if (arraysMatch(groups, [
+if (isMatch(groups, [
 	[[1, 2], [11, 12]],
 	[[8, 9, 10]],
 	[[13, 14, 15, 16], [22, 23, 24, 25]],
@@ -16,7 +16,7 @@ else console.log('test 1 FAILED');
 
 
 // Make sure original array has not changed:
-if (arraysMatch(arrays, [
+if (isMatch(arrays, [
 	[1, 2], [3, 4, 5, 6, 7], [8, 9, 10], [11, 12], [13, 14, 15, 16], [17, 18, 19, 20, 21], [22, 23, 24, 25]
 ])) console.log('test 1A passed');
 else console.log('test 1A FAILED');
